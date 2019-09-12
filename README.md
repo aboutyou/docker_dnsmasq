@@ -10,7 +10,7 @@ Just pull the container from dockerhub with `docker pull m3philis/dnsmasq`.
 
 DNSmasq gets configured via environment variables
 
-* `DNSMASQ_FORWARD` to specify the first DNS Server which is asked when DNSmasq can't resolve a request, other DNS forward server are found in `/etc/resolv.conf`
+* `DNSMASQ_FORWARD` to specify the first DNS Server which is asked when DNSmasq can't resolve a request, other DNS forward server are found in `/etc/resolv.conf` (Default is `1.1.1.1`)
 * `DNSMASQ_RULES` to specify DNS entries to add to DNSmasq in one line. Syntax is `a.test.com=1.2.3.4,b.test.com=1.2.3.5`
 * `DNSMASQ_RULES_FILE` to specify a file for host entries.
 
