@@ -2,18 +2,18 @@
 
 set -ex
 
-if [ ! -z $DNSMASQ_RULES ]
+if [ -n "${DNSMASQ_RULES}" ]
 then
   IFS='\n'
-  for entry in $(echo $DNSMASQ_RULES | tr '=' ' ' | tr ',' '\n')
+  for entry in $(echo "${DNSMASQ_RULES}" | tr '=' ' ' | tr ',' '\n')
   do
-    echo $entry >> /etc/dnsmasq.d/hosts.conf
+    echo "${entry}" >> /etc/dnsmasq.d/hosts.conf
   done
 
   echo "addn-hosts=/etc/dnsmasq.d/hosts.conf" >> /etc/dnsmasq.conf
 fi
 
-if [ ! -z $DNSMASQ_RULES_FILE ]
+if [ -n "${DNSMASQ_RULES_FILE}" ]
 then
   echo "addn-hosts=${DNSMASQ_RULES_FILE}" >> /etc/dnsmasq.conf
 fi
