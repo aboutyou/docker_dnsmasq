@@ -5,7 +5,7 @@ ENV DNSMASQ_FORWARD 1.1.1.1
 RUN apk update && \
     apk add dnsmasq
 
-ADD run.sh /run.sh
+ADD entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["dnsmasq", "-d"]
